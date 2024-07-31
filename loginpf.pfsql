@@ -1,0 +1,41 @@
+-- -------------------------------------------------------------------------------
+-- Created By..........: Programmers.io @ 2024
+-- Created Date........: 2024/22/07
+-- Developer...........: Devanshu Sharma
+-- Description.........: Login Table
+-- -------------------------------------------------------------------------------
+-- MODIFICATION LOG:
+-- -------------------------------------------------------------------------------
+-- Date    | Mod_ID  | Developer  | Case and Description
+-- --------|---------|------------|-----------------------------------------------
+-- 24/22/07|         | Devanshu S | File Created
+-- -------------------------------------------------------------------------------
+-- Compilation Instruction
+-- -------------------------------------------------------------------------------
+-- RUNSQLSTM SRCFILE(TASKMS/QDDSSRC) SRCMBR(LOGINPF) COMMIT(*NONE) DFTRDBCOL(TASKMS)
+-- -------------------------------------------------------------------------------
+Create Or Replace Table Login_Table(
+  User_ID            For Column USERID     Char(10) Not Null,
+  User_Password      For Column USERPASS   Char(20) With Default ' ',
+  Security_Question  For Column SECQUES    Char(30) With Default ' ',
+  Security_Answere   For Column SECANS     Char(10) With Default ' ',
+PRIMARY KEY (USERID)
+ )
+Rcdfmt LOGINPFR;
+
+
+Label On Table Login_Table Is 'Login Table For TMS' ;
+
+Label On Column Login_Table(
+ USERID      Is 'User Id',
+ USERPASS    Is 'User Password',
+ SECQUES     Is 'Security_Question',
+ SECANS      Is 'Security_Answere');
+
+Label On Column Login_Table(
+ USERID      Text Is 'User Id',
+ USERPASS    Text Is 'User Password',
+ SECQUES     Text Is 'Security_Question',
+ SECANS      Text Is 'Security_Answere');
+
+Rename table Login_Table to System Name LOGINPF;
