@@ -35,7 +35,7 @@ Label On Column Login_Table(
 Label On Column Login_Table(
  USERID      Text Is 'User Id',
  USERPASS    Text Is 'User Password',
- SECQUES     Text Is 'Security_Question',
+ SECQUES     Text Is 'Security_Question',                
  SECANS      Text Is 'Security_Answere');
 
 Rename table Login_Table to System Name LOGINPF;

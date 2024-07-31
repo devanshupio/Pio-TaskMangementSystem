@@ -12,8 +12,8 @@
 // 24/24/07|         | Devanshu S | File Created
 // -------------------------------------------------------------------------------
 // Compilation Instruction
-Ctl-Opt DftActGrp(*No);
 
+Ctl-Opt DftActGrp(*No);
 
 //------------------------------------------------------------------
 //  File Declartion
