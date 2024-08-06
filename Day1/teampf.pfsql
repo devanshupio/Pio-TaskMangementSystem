@@ -1,0 +1,43 @@
+-- -------------------------------------------------------------------------------
+-- Created By..........: Programmers.io @ 2024
+-- Created Date........: 2024/22/07
+-- Developer...........: Devanshu Sharma
+-- Description.........: Login Table
+-- -------------------------------------------------------------------------------
+-- MODIFICATION LOG:
+-- -------------------------------------------------------------------------------
+-- Date    | Mod_ID  | Developer  | Case and Description
+-- --------|---------|------------|-----------------------------------------------
+-- 24/22/07|         | Devanshu S | File Created
+-- -------------------------------------------------------------------------------
+-- Compilation Instruction
+-- -------------------------------------------------------------------------------
+-- RUNSQLSTM SRCFILE(TASKMS/QDDLSRC) SRCMBR(TEAMPF) COMMIT(*NONE) DFTRDBCOL(TASKMS)
+-- -------------------------------------------------------------------------------
+Create Or Replace Table Team_Table(
+  Task_ID            For Column TId       Char(10) Not Null,
+  User_ID            For Column TUSERID   Char(10) Not Null,
+  Project_ID         For Column TPROJID   Char(10) Not Null,
+  Task_Role          For Column TRole     Char(20) Not Null,
+ PRIMARY KEY (TId)
+ )
+Rcdfmt TEAMPFR;
+
+
+Label On Table Team_Table Is 'Team Table For TMS' ;
+
+Label On Column Team_Table(
+  TID     Is ' Task ID',
+  TUserID     Is ' Task ID',
+  TProjID  Is ' Task ID',
+  TRole   Is 'Task Role'
+ );
+
+Label On Column Team_Table(
+  TID     Is ' Task ID',
+  TUserID     Is ' Task ID',
+  TProjID     Is ' Task ID',
+  TRole     Is 'Task Role'
+   );
+
+Rename table Team_Table to System Name TEAMPF;

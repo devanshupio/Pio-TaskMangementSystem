@@ -48,7 +48,7 @@ End-Ds;
 // variable Declartion
 //-------------------------------------------------------------------
 
-Dcl-S UserPrefix      Char(3);
+Dcl-S UserPrefix       Char(3);
 Dcl-S ValInd Ind Inz(*off);
 
 
@@ -60,24 +60,23 @@ Dcl-S ValInd Ind Inz(*off);
 Dow Exit = *Off;
 
    Funmsg = 'F3=Exit    F5=Refresh    F10=Forget Password';
-   Heading = 'Login Screen';
-   IndicatorChange();
+   Heading = 'Login Screen'; 
    Write Header;
    Write Footer;
    Exfmt Loginsrn;
+   IndicatorChange();
    Select;
       when Exit = *on;
          leave;
       When IndForgetPass= *on;
          IndForgetPass = *off;
          ForgetPassProc();
-         clear SETNEWPASS;
+         // clear SETNEWPASS;
       when Refresh = *on;
          Refresh = *off;
          clear LoginSrn;
       other;
          LoginProc();
-         clear SETNEWPASS;
    Endsl;
 
 enddo;
@@ -97,9 +96,8 @@ dcl-proc LoginProc;
    UserPrefix = %subst(LUserId : 1:3);
    Validation();
 
-   if ValInd = *on;
+   if ErrMsg = ' ';
 
-      ValInd = *off;
       return;
 
    endif;
@@ -137,12 +135,10 @@ dcl-proc Validation ;
    select;
       when LUserId = '';
          ErrMsg = 'Please Enter Id';
-         ValInd = *On;
          IndId= *On;
          return;
       when LUserPass = '';
          ErrMsg = 'Please Enter Password';
-         ValInd = *On;
          IndPass = *On;
          return;
       when UserPrefix <> 'TML' and UserPrefix <> 'MNG' and UserPrefix <> 'USR';
@@ -151,7 +147,6 @@ dcl-proc Validation ;
          return;
       other;
          IndicatorChange();
-         IndPass = *Off;
          return;
    endsl;
 
@@ -160,16 +155,17 @@ end-proc;
 
 dcl-proc IndicatorChange;
 
-   ValInd = *Off;
    IndId= *Off;
+   IndPass = *Off;
    IndConPass =*off;
    IndNewPass = *off;
    IndSecAns = *off;
    IndSecQus = *off;
    IndUserID = *off;
    IndProSecQue = *on;
-   clear ErrMsg;
-   clear LoginSrn;
+   // clear ErrMsg;
+   // ErrMsg = ' ';
+   // clear LoginSrn;
 
 end-proc;
 
@@ -290,9 +286,10 @@ end-proc;
 
 dcl-proc ForgetPassProc;
 
+   funmsg = 'F3=Exit    F5=Refresh    F12=Back    Enter=Confirm';
+   Heading = 'Forgot Password';
+
    dow exit = *off and Back = *off;
-      funmsg = 'F3=Exit    F5=Refresh    F12=Back    Enter=Confirm';
-      Heading = 'Forgot Password';
       Write Header;
       Write Footer;
       Exfmt SETNEWPASS;
@@ -305,7 +302,7 @@ dcl-proc ForgetPassProc;
             Leave;
          when Refresh=*on;
             Refresh = *off;
-            clear SETNEWPASS;
+            clear SETNEWPASS; //change it clear each field
          when Prompt = *on And %trim(fld) = 'FSECQUES';
             PromptSelectValue();
             back = *off;
@@ -328,10 +325,10 @@ dcl-proc SetNewPassword;
       if %Found();
          UserPass = FNewPass;
          Update Loginpfr;
-         ErrMsg = 'New Password in Set';
+         ErrMsg = 'New Password is Set';
       else;
          ErrMsg = 'User Id Not Found';
-      endif;
+      endif;  
 
    endif;
 

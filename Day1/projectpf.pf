@@ -1,0 +1,43 @@
+                R PROJECTPFR
+                  PROJID        10A         COLHDG('PROJECT ID')
+                                            TEXT('PROJECT ID')
+                  PNAME         10A         COLHDG('PROJECT NAME')
+                                            TEXT('PROJECT NAME')
+                  PSTRDATE        L         COLHDG('STR DATE')
+                                            TEXT('START DATE OF PROJECT')
+                  PENDDATE        L         COLHDG('END DATE')
+                                            TEXT('END DATE OF PROJECT')
+                  PDETAILS      50A         COLHDG('PROJECT DETAILS')
+                                            TEXT('PROJECT DETAILS')
+                  PTEAMLEAD     10A         COLHDG('PROJECT TEAMLEAD')
+                                            TEXT('PROJECT TEAMLEAD')
+                  PSTATUS       10A         COLHDG('PROJECT STATUS')
+                                            TEXT('PROJECT STATUS')
+                  PTEAMID       10A         COLHDG('TEAM ID')
+                                            TEXT('TEAM ID')
+                  PBUDGET       10S         COLHDG('PROJECT BUDGET')
+                                            TEXT('PROJECT BUDGET')
+                  PCRTDT          L         COLHDG('PRO CRT TIMESTAMP')
+                                            TEXT('PRO CRT TIMESTAMP')
+                  PUPDDT          L         COLHDG('PROJ UPD TIMESTAMP')
+                                            TEXT('PROJ UPD TIMESTAMP')
+                  PUPDID        10A         COLHDG('PROJ UPD USERID')
+                                            TEXT('PROJ UPD USERID')
+                K PROJID
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

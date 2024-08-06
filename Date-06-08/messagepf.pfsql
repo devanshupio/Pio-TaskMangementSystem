@@ -1,0 +1,59 @@
+-- -------------------------------------------------------------------------------
+-- Created By..........: Programmers.io @ 2024
+-- Created Date........: 2024/22/07
+-- Developer...........: Devanshu Sharma
+-- Description.........: Login Table
+-- -------------------------------------------------------------------------------
+-- MODIFICATION LOG:
+-- -------------------------------------------------------------------------------
+-- Date    | Mod_ID  | Developer  | Case and Description
+-- --------|---------|------------|-----------------------------------------------
+-- 24/22/07|         | Devanshu S | File Created
+-- -------------------------------------------------------------------------------
+-- Compilation Instruction
+-- -------------------------------------------------------------------------------
+-- RUNSQLSTM SRCFILE(TASKMS/QDDLSRC) SRCMBR(MessagePF) COMMIT(*NONE) DFTRDBCOL(TASKMS)
+-- -------------------------------------------------------------------------------
+Create Or Replace Table Message_Table(
+  Message_ID         For Column MId       Char(10) Not Null,
+  Message_Date       For Column MDate     Date Not Null,
+  Message_Time       For Column MTime     Time Not Null,
+  Message_Send_Name  For Column MSendN    Char(20) Not Null,
+  Message_Send_Id    For Column MsendId   Char(10) Not Null,
+  Message_Details    For Column MDetail   Char(300) Not Null,
+  Message_Upd_Time   For Column MUpd      Time Not Null,
+  Message_Crt_Id     For Column McrtId    Char(10) Not Null,
+  Message_Upd_Id     For Column MUpdId    Char(10) Not Null,
+
+ PRIMARY KEY (MId)
+ )
+Rcdfmt MessagePFR;
+
+
+Label On Table Message_Table Is 'Message Table For TMS' ;
+
+Label On Column Message_Table(
+  Mid     Is   ' Message Id',
+  MDate   Is   'Message Date',
+  MTime   Is   'Message Time',
+  MSendN  Is   'Message Send Name',
+  MsendId Is   'Message Send Id',
+  MDetail Is   'Message Details',
+  McrtId  Is   'Message Crt Id',
+  MUpd    Is   'Message Upd Time',
+  MUpdId  Is   'Message upd Id'
+ );
+
+Label On Column Message_Table(
+   Mid    Is   ' Message Id',
+  MDate   Is   'Message Date',
+  MTime   Is   'Message Time',
+  MSendN  Is   'Message Send Name',
+  MsendId Is   'Message Send Id',
+  MDetail Is   'Message Details',
+  McrtId  Is   'Message Crt Id',
+  MUpd    Is   'Message Upd Time',
+  MUpdId  Is   'Message upd Id'
+   );
+
+Rename table Message_Table to System Name MessagePF;

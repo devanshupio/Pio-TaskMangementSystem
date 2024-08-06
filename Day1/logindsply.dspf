@@ -1,0 +1,150 @@
+     A*%%TS  SD  20240731  060901  DEVANSHU    REL-V7R5M0  5770-WDS
+     A*%%EC
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      INDARA
+     A                                      CF03(03 'exit')
+     A                                      CF12(12 'back')
+     A                                      CF05(05 'refresh')
+     A          R LOGINSRN
+     A*%%TS  SD  20240729  073501  DEVANSHU    REL-V7R5M0  5770-WDS
+     A                                      CF10(10 'Forget Password')
+     A                                      OVERLAY
+     A                                  8 20'USER ID'
+     A                                  8 34':'
+     A                                  9 20'PASSWORD'
+     A                                  9 34':'
+     A                                  8 28'.....'
+     A                                  9 29'....'
+     A            LUSERID   R        I  8 37REFFLD(LOGINPFR/USERID TASKMS/LOGIN-
+     A                                      PF)
+     A  21                                  DSPATR(RI)
+     A  21                                  DSPATR(PC)
+     A            LUSERPASS R        I  9 37REFFLD(LOGINPFR/USERPASS TASKMS/LOG-
+     A                                      INPF)
+     A  22                                  DSPATR(RI)
+     A  22                                  DSPATR(PC)
+     A                                      CHECK(LC)
+     A          R HEADER
+     A*%%TS  SD  20240731  060712  DEVANSHU    REL-V7R5M0  5770-WDS
+     A                                      OVERLAY
+     A                                  1  3USER
+     A                                      COLOR(WHT)
+     A                                  1 30'TASK MANAGEMENT SYSTEM'
+     A                                      COLOR(WHT)
+     A                                  1 65'DATE '
+     A                                      COLOR(WHT)
+     A                                  1 71':'
+     A                                      COLOR(WHT)
+     A                                  2 65'TIME '
+     A                                      COLOR(WHT)
+     A                                  2 71':'
+     A                                      COLOR(WHT)
+     A                                  1 73DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 73TIME
+     A                                      COLOR(WHT)
+     A            HEADING       30A  O  3 30COLOR(WHT)
+     A                                  4  4'__________________________________-
+     A                                      ___________________________________-
+     A                                      ______'
+     A                                      COLOR(WHT)
+     A          R FOOTER
+     A*%%TS  SD  20240731  055528  DEVANSHU    REL-V7R5M0  5770-WDS
+     A                                      OVERLAY
+     A            FUNMSG       120A  O 22  2COLOR(BLU)
+     A            ERRMSG        50   O 24  2COLOR(WHT)
+     A                                 21  3'__________________________________-
+     A                                      ___________________________________-
+     A                                      _______'
+     A                                      COLOR(BLU)
+     A          R FORGETPASS
+     A*%%TS  SD  20240731  042049  DEVANSHU    REL-V7R5M0  5770-WDS
+     A                                      CF04(04 'Prompt')
+     A                                      RTNCSRLOC(&RCD &FLD &POS)
+     A                                      OVERLAY
+     A            RCD           10A  H
+     A            FLD           10A  H
+     A            POS            4S 0H
+     A                                  7 19'User Id'
+     A                                  8 19'Security Question'
+     A                                  9 19'Security Answere'
+     A                                 10 19'New Password'
+     A                                 11 19'Confirm Password'
+     A                                  7 27'.............'
+     A                                  8 37'...'
+     A                                  9 36'....'
+     A                                 10 32'........'
+     A                                 11 36'....'
+     A                                  7 41':'
+     A                                  8 41':'
+     A                                  9 41':'
+     A                                 10 41':'
+     A                                 11 41':'
+     A            FUSERID   R        B  7 44REFFLD(LOGINPFR/USERID TASKMS/LOGIN-
+     A                                      PF)
+     A            FSECQUES  R        B  8 44REFFLD(LOGINPFR/SECQUES TASKMS/LOGI-
+     A                                      NPF)
+     A            FSECANS   R        B  9 44REFFLD(LOGINPFR/SECANS TASKMS/LOGIN-
+     A                                      PF)
+     A            FNEWPASS      10A  B 10 44
+     A            FCONPASS      10A  B 11 44
+     A                                  8 65'(F4)'
+     A          R LOGQUES
+     A*%%TS  SD  20240731  052153  DEVANSHU    REL-V7R5M0  5770-WDS
+     A                                      WINDOW(9 36 10 35)
+     A                                  1  1'Select Security Question'
+     A                                  2  1'1. What is your favorite Color?'
+     A                                  3  1'2. What is your pet name?'
+     A                                  4  1'3. What is your lucky number?'
+     A                                  5  1'4. What is your School name? '
+     A                                  7  5'Select Opt :'
+     A            WOPT           2A  B  7 21
+     A                                  9  6'F12= Cancel'
+     A          R SETNEWPASS
+     A*%%TS  SD  20240731  060901  DEVANSHU    REL-V7R5M0  5770-WDS
+     A                                      CF04(04 'Prompt')
+     A                                      RTNCSRLOC(&RCD &FLD &POS)
+     A                                      OVERLAY
+     A            RCD           10A  H
+     A            FLD           10A  H
+     A            POS            4S 0H
+     A                                  7 19'User Id'
+     A                                  8 19'Security Question'
+     A                                  9 19'Security Answere'
+     A                                 10 19'New Password'
+     A                                 11 19'Confirm Password'
+     A                                  7 27'.............'
+     A                                  8 37'...'
+     A                                  9 36'....'
+     A                                 10 32'........'
+     A                                 11 36'....'
+     A                                  7 41':'
+     A                                  8 41':'
+     A                                  9 41':'
+     A                                 10 41':'
+     A                                 11 41':'
+     A            FUSERID   R        B  7 44REFFLD(LOGINPFR/USERID TASKMS/LOGIN-
+     A                                      PF)
+     A  23                                  DSPATR(RI)
+     A  23                                  DSPATR(PC)
+     A  80                                  DSPATR(PR)
+     A            FSECQUES  R        B  8 44REFFLD(LOGINPFR/SECQUES TASKMS/LOGI-
+     A                                      NPF)
+     A  24                                  DSPATR(RI)
+     A  24                                  DSPATR(PC)
+     A  81                                  DSPATR(PR)
+     A            FSECANS   R        B  9 44REFFLD(LOGINPFR/SECANS TASKMS/LOGIN-
+     A                                      PF)
+     A  25                                  DSPATR(RI)
+     A  25                                  DSPATR(PC)
+     A            FNEWPASS      10A  B 10 44
+     A  26                                  DSPATR(RI)
+     A  26                                  DSPATR(PC)
+     A                                      CHECK(LC)
+     A            FCONPASS      10A  B 11 44
+     A  27                                  DSPATR(RI)
+     A  27                                  DSPATR(PC)
+     A                                      CHECK(LC)
+     A                                  8 65'(F4)'
+     A                                  8 75'(F4)'

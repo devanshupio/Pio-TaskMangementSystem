@@ -1,0 +1,76 @@
+     A*%%TS  SD  20240805  070119  DEVANSHU    REL-V7R5M0  5770-WDS
+     A*%%EC
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      INDARA
+     A                                      CF03(03 'Exit')
+     A                                      CF12(12 'Back')
+     A                                      CF05(05 'Refresh')
+     A          R MNGMAINSRN
+     A*%%TS  SD  20240805  070119  DEVANSHU    REL-V7R5M0  5770-WDS
+     A                                  7 22'1. Work With Project'
+     A                                  8 22'2. Work With Message'
+     A                                  9 22'3. Assign Task'
+     A                                 10 22'4. Review Task'
+     A                                 14 12'Selection.......:'
+     A            MNGOPR         2A  B 14 32
+     A          R HEADER
+     A*%%TS  SD  20240805  070119  DEVANSHU    REL-V7R5M0  5770-WDS
+     A                                  1  3USER
+     A                                      COLOR(WHT)
+     A                                  1 27'Task Management System'
+     A                                      COLOR(WHT)
+     A                                  1 61'Date :'
+     A                                      COLOR(WHT)
+     A                                  2 61'Time :'
+     A                                      COLOR(WHT)
+     A                                  1 69DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 69TIME
+     A                                      COLOR(WHT)
+     A            HEADING       22A  O  2 27COLOR(WHT)
+     A          R FOOTER
+     A*%%TS  SD  20240805  070119  DEVANSHU    REL-V7R5M0  5770-WDS
+     A            FOOTERL1      75A  O 22  3
+     A            FOOTERL2      75A  O 23  3
+     A            ERRMSG        75A  O 24  3
+     A          R SFLPROJ                   SFL
+     A*%%TS  SD  20240805  070119  DEVANSHU    REL-V7R5M0  5770-WDS
+     A            OPTVAL         2A  B 10  4
+     A            DPROJID   R        O 10 10REFFLD(PROJECTPFR/PROJID TASKMS/PRO-
+     A                                      JECTPF)
+     A            DPNAME    R        O 10 24REFFLD(PROJECTPFR/PNAME TASKMS/PROJ-
+     A                                      ECTPF)
+     A            DPTEAMLEADR        O 10 38REFFLD(PROJECTPFR/PTEAMLEAD TASKMS/-
+     A                                      PROJECTPF)
+     A            DPSTRDATE R        O 10 53REFFLD(PROJECTPFR/PSTRDATE TASKMS/P-
+     A                                      ROJECTPF)
+     A            DPSTATUS  R        O 10 68REFFLD(PROJECTPFR/PSTATUS TASKMS/PR-
+     A                                      OJECTPF)
+     A          R SFLPROJCTL                SFLCTL(SFLPROJ)
+     A*%%TS  SD  20240805  060115  DEVANSHU    REL-V7R5M0  5770-WDS
+     A  53                                  SFLDSP
+     A  54                                  SFLDSPCTL
+     A  51                                  SFLCLR
+     A  52                                  SFLEND
+     A                                      SFLSIZ(9999)
+     A                                      SFLPAG(0007)
+     A                                  4 35'Position To :'
+     A            FLD001        30   B  4 50COLOR(WHT)
+     A                                  5  3'Type Option, Press Enter.'
+     A                                      COLOR(BLU)
+     A                                  6  3'2=Update    5=Display    7=Manage -
+     A                                      Team'
+     A                                      COLOR(BLU)
+     A                                  8  4'Opt'
+     A                                      COLOR(WHT)
+     A                                  8 10'Proj Id'
+     A                                      COLOR(WHT)
+     A                                  8 24'Proj Name'
+     A                                      COLOR(WHT)
+     A                                  8 38'Team Lead'
+     A                                      COLOR(WHT)
+     A                                  8 53'Start Date'
+     A                                      COLOR(WHT)
+     A                                  8 68'Status'
+     A                                      COLOR(WHT)
