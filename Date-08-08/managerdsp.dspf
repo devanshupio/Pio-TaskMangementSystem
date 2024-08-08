@@ -1,0 +1,174 @@
+     A*%%TS  SD  20240808  062332  DEVANSHU    REL-V7R5M0  5770-WDS
+     A*%%EC
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      INDARA
+     A                                      CF03(03 'Exit')
+     A                                      CF12(12 'Back')
+     A                                      CF05(05 'Refresh')
+     A          R MNGMAINSRN
+     A*%%TS  SD  20240807  040906  DEVANSHU    REL-V7R5M0  5770-WDS
+     A                                      OVERLAY
+     A                                  7 22'1. Work With Project'
+     A                                  8 22'2. Work With Message'
+     A                                  9 22'3. Assign Task'
+     A                                 10 22'4. Review Task'
+     A                                 14 12'Selection.......:'
+     A            MNGOPR         2A  B 14 32
+     A  31                                  DSPATR(RI)
+     A  31                                  DSPATR(PC)
+     A          R HEADER
+     A*%%TS  SD  20240806  060600  DEVANSHU    REL-V7R5M0  5770-WDS
+     A                                  1  3USER
+     A                                      COLOR(WHT)
+     A                                  1 27'Task Management System'
+     A                                      COLOR(WHT)
+     A                                  1 61'Date :'
+     A                                      COLOR(WHT)
+     A                                  2 61'Time :'
+     A                                      COLOR(WHT)
+     A                                  1 69DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 69TIME
+     A                                      COLOR(WHT)
+     A            HEADING       22A  O  2 27COLOR(WHT)
+     A*                                     OVERLAY
+     A          R FOOTER
+     A*%%TS  SD  20240807  020513  DEVANSHU    REL-V7R5M0  5770-WDS
+     A                                      OVERLAY
+     A*                                     OVERLAY
+     A            FOOTERL1      75A  O 22  3COLOR(BLU)
+     A            FOOTERL2      75A  O 23  3COLOR(BLU)
+     A            ERRMSG        75A  O 24  3COLOR(WHT)
+     A          R SFLPROJ                   SFL
+     A*%%TS  SD  20240806  060600  DEVANSHU    REL-V7R5M0  5770-WDS
+     A            OPTVAL         2A  B 10  4
+     A            DPROJID   R        O 10 10REFFLD(PROJECTPFR/PROJID TASKMS/PRO-
+     A                                      JECTPF)
+     A            DPNAME    R        O 10 24REFFLD(PROJECTPFR/PNAME TASKMS/PROJ-
+     A                                      ECTPF)
+     A            DPTEAMLEADR        O 10 38REFFLD(PROJECTPFR/PTEAMLEAD TASKMS/-
+     A                                      PROJECTPF)
+     A            DPSTRDATE R        O 10 53REFFLD(PROJECTPFR/PSTRDATE TASKMS/P-
+     A                                      ROJECTPF)
+     A            DPSTATUS  R        O 10 67REFFLD(PROJECTPFR/PSTATUS TASKMS/PR-
+     A                                      OJECTPF)
+     A          R SFLPROJCTL                SFLCTL(SFLPROJ)
+     A*%%TS  SD  20240807  050736  DEVANSHU    REL-V7R5M0  5770-WDS
+     A                                      CF06(06 'AddNewProject')
+     A                                      OVERLAY
+     A  53                                  SFLDSP
+     A  54                                  SFLDSPCTL
+     A  51                                  SFLCLR
+     A  52                                  SFLEND
+     A                                      SFLSIZ(9999)
+     A                                      SFLPAG(0007)
+     A                                  4 35'Position To :'
+     A            FLD001        30A  B  4 50COLOR(WHT)
+     A                                  5  3'Type Option, Press Enter.'
+     A                                      COLOR(BLU)
+     A                                  6  3'2=Update    5=Display    7=Manage -
+     A                                      Team'
+     A                                      COLOR(BLU)
+     A                                  8  4'Opt'
+     A                                      COLOR(WHT)
+     A                                  8 10'Proj Id'
+     A                                      COLOR(WHT)
+     A                                  8 24'Proj Name'
+     A                                      COLOR(WHT)
+     A                                  8 38'Team Lead'
+     A                                      COLOR(WHT)
+     A                                  8 53'Start Date'
+     A                                      COLOR(WHT)
+     A                                  8 67'Status'
+     A                                      COLOR(WHT)
+     A          R CRTPROJ
+     A*%%TS  SD  20240808  062332  DEVANSHU    REL-V7R5M0  5770-WDS
+     A                                      CF04(04 'Prompt')
+     A                                      RTNCSRLOC(&RCD &FLD &POS)
+     A                                      OVERLAY
+     A            FLD           10A  H
+     A            RCD           10A  H
+     A            POS            4S 0H
+     A                                  5  1'Project Id'
+     A                                  6  1'Project Name'
+     A                                  7  1'Start Date'
+     A                                  8  1'Est. Complete Date'
+     A                                  9  1'Team Lead'
+     A                                 10  1'Project Details'
+     A                                 15  1'Project Status'
+     A                                 16  1'Project Buget'
+     A                                 17  1'Language Required'
+     A                                  5 12'............'
+     A                                  6 14'..........'
+     A                                  7 12'............'
+     A                                  8 20'....'
+     A                                  9 11'.............'
+     A                                 10 17'.......'
+     A                                 15 16'........'
+     A                                 16 15'.........'
+     A                                 17 19'.....'
+     A                                  5 25':'
+     A                                  6 25':'
+     A                                  7 25':'
+     A                                  8 25':'
+     A                                  9 25':'
+     A                                 10 25':'
+     A                                 15 25':'
+     A                                 16 25':'
+     A                                 17 25':'
+     A            S1PROJID  R        B  5 28REFFLD(PROJECTPFR/PROJID TASKMS/PRO-
+     A                                      JECTPF)
+     A N44                                  DSPATR(UL)
+     A  44                                  DSPATR(PR)
+     A            S1PNAME   R        B  6 28REFFLD(PROJECTPFR/PNAME TASKMS/PROJ-
+     A                                      ECTPF)
+     A  35                                  DSPATR(RI)
+     A  35                                  DSPATR(PC)
+     A            S1PSTRDATER        B  7 28REFFLD(PROJECTPFR/PSTRDATE TASKMS/P-
+     A                                      ROJECTPF)
+     A  36                                  DSPATR(RI)
+     A  36                                  DSPATR(PC)
+     A            S1PENDDATER        B  8 28REFFLD(PROJECTPFR/PENDDATE TASKMS/P-
+     A                                      ROJECTPF)
+     A  37                                  DSPATR(RI)
+     A  37                                  DSPATR(PC)
+     A            S1PTEAMLEAR        B  9 28REFFLD(PROJECTPFR/PTEAMLEAD TASKMS/-
+     A                                      PROJECTPF)
+     A  38                                  DSPATR(RI)
+     A  38                                  DSPATR(PC)
+     A            S1PDETAILSR        B 10 28REFFLD(PROJECTPFR/PDETAILS TASKMS/P-
+     A                                      ROJECTPF)
+     A  39                                  DSPATR(RI)
+     A  39                                  DSPATR(PC)
+     A            S1PSTATUS R        B 15 28REFFLD(PROJECTPFR/PSTATUS TASKMS/PR-
+     A                                      OJECTPF)
+     A  40                                  DSPATR(RI)
+     A  40                                  DSPATR(PC)
+     A            S1PBUDGET R        B 16 28REFFLD(PROJECTPFR/PBUDGET TASKMS/PR-
+     A                                      OJECTPF)
+     A                                      EDTCDE(4)
+     A  41                                  DSPATR(RI)
+     A  41                                  DSPATR(PC)
+     A            S1PLANG   R        B 17 28REFFLD(PROJECTPFR/PLANG TASKMS/PROJ-
+     A                                      ECTPF)
+     A  42                                  DSPATR(RI)
+     A  42                                  DSPATR(PC)
+     A                                  9 40'F4=Prompt'
+     A          R SELTLSFL                  SFL
+     A*%%TS  SD  20240808  050239  DEVANSHU    REL-V7R5M0  5770-WDS
+     A            WUSERID   R        O  2  9REFFLD(USERPFR/USERID TASKMS/USERPF)
+     A            WUNAME    R        O  2 22REFFLD(USERPFR/UNAME TASKMS/USERPF)
+     A            OPTTLVAL       2A  B  2  2
+     A          R SELTLCTL                  SFLCTL(SELTLSFL)
+     A*%%TS  SD  20240808  012539  DEVANSHU    REL-V7R5M0  5770-WDS
+     A  58                                  SFLDSP
+     A  59                                  SFLDSPCTL
+     A  56                                  SFLCLR
+     A  57                                  SFLEND
+     A                                      SFLSIZ(9999)
+     A                                      SFLPAG(0007)
+     A                                      WINDOW(7 30 11 41)
+     A                                  1  2'Opt'
+     A                                  1  9'UserId'
+     A                                  1 22'Name'
